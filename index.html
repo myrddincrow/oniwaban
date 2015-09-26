@@ -13,7 +13,7 @@ span{
 </style>
 <body ng-app="myApp" ng-controller="MyCtrl">
 <hr>
-  <div><b>zKill Data From</b> {{kills[0].killTime}} to {{kills[kills.length-1].killTime}}</div>
+  <div><b>≡v≡ Oniwaban 御庭番</b> || <b>zKill Data From</b> {{kills[0].killTime}} to {{kills[kills.length-1].killTime}} || <a href="#" ng-click="exportData()">Export</a></div>
 <hr>
 <!--ALL PILOTS minus Dupes-->
 <div style="float:left; width:250px;">
@@ -22,7 +22,8 @@ span{
 <input style="width:75%;" type="text" ng-model="searchPilots" placeholder=" search pilots">
 <hr>
     <div ng-repeat="pilot in filteredList.pilots | filter:searchPilots | orderBy:''">
-  <span>{{pilot.pilotName}} <b>|| <a ng-href="http://eve-hunt.net/hunt/{{pilot.pilotName}}" target="_blank">H</a> || <a ng-href="https://zkillboard.com/character/{{pilot.pilotId}}" target="_blank">zK</a> || <a ng-href="http://evewho.com/pilot/{{pilot.pilotName}}" target="_blank">W</a> || <a ng-href="http://eve-search.com/search/author/{{pilot.pilotName}}" target="_blank">S</a></b></span>
+<div style="border: 1px solid #ccc; width:55%; float:left;"><span>&nbsp;{{pilot.pilotName}}</span></div>
+  <div style="border: 1px solid #ccc; width:34%; float:left;"><span><b>&nbsp;<a ng-href="http://eve-hunt.net/hunt/{{pilot.pilotName}}" target="_blank">H</a> || <a ng-href="https://zkillboard.com/character/{{pilot.pilotId}}" target="_blank">zK</a> || <a ng-href="http://evewho.com/pilot/{{pilot.pilotName}}" target="_blank">W</a> || <a ng-href="http://eve-search.com/search/author/{{pilot.pilotName}}" target="_blank">S</a> </b></span></div>
 </div>
 </div>
 <!--ALL CORPS minus Dupes-->
@@ -32,7 +33,7 @@ span{
 <input style="width:75%;" type="text" ng-model="searchCorps" placeholder=" search corps">
 <hr>
     <div ng-repeat="corp in filteredList.corps | filter:searchCorps | orderBy:''">
-  <span>{{corp.corpName}} <b>|| <a ng-href="http://eve-hunt.net/hunt/{{corp.corpName | noPeriod}}" target="_blank">H</a> || <a ng-href="https://zkillboard.com/corporation/{{corp.corpId}}" target="_blank">zK</a> || <a ng-href="http://evewho.com/corp/{{corp.corpName}}" target="_blank">W</a></b>
+  <div style="border: 1px solid #ccc; width:70%; float:left;"><span>&nbsp;{{corp.corpName}}</span></div> <div style="border: 1px solid #ccc; width:21%; float:left;"><span><b>&nbsp;<a ng-href="http://eve-hunt.net/hunt/{{corp.corpName | noPeriod}}" target="_blank">H</a> || <a ng-href="https://zkillboard.com/corporation/{{corp.corpId}}" target="_blank">zK</a> || <a ng-href="http://evewho.com/corp/{{corp.corpName}}" target="_blank">W</a></b></span></div>
 </div>
 </div>
 <!--ALL Alliances minus Dupes-->
@@ -42,7 +43,7 @@ span{
 <input style="width:75%;" type="text" ng-model="searchAlly" placeholder=" search alliances">
 <hr>
     <div ng-repeat="ally in filteredList.allies | filter:searchAlly | orderBy:''">
-  <span>{{ally}}</span>
+  <div style="border: 1px solid #ccc; width:70%; float:left;"><span>&nbsp;{{ally.allyName}}</span></div>
 </div>
 </div>
 
@@ -52,7 +53,7 @@ span{
 <input style="width:75%;" type="text" ng-model="searchShips" placeholder=" search ships">
 <hr>
     <div ng-repeat="ship in filteredList.ships | filter:searchShips | orderBy:''">
-  <span>{{ship}} || <a ng-href="https://zkillboard.com/ship/{{ship}}" target="_blank">zK</a></span>
+  <span>{{ship.shipType}} || <a ng-href="https://zkillboard.com/ship/{{ship}}" target="_blank">zK</a></span>
 </div>
 </div>
 
