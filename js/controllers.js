@@ -9,7 +9,7 @@ var myApp = angular.module('myApp', [])
     })
 
 .controller('MyCtrl', ['$scope', '$http', function ($scope, $http) {
-$http.get('js/9-16.json').success(function(data){
+$http.get('https://zkillboard.com/api/kills/solarSystemID/30004056/').success(function(data){
     $scope.kills = angular.fromJson(data);
 
     $scope.filteredList = {};
