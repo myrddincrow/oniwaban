@@ -9,6 +9,29 @@ var myApp = angular.module('myApp', [])
     })
 
 .controller('MyCtrl', ['$scope', '$http', function ($scope, $http) {
+<<<<<<< HEAD
+=======
+$http.get('https://zkillboard.com/api/kills/solarSystemID/30004056/').success(function(data){
+    $scope.kills = angular.fromJson(data);
+
+    $scope.filteredList = {};
+    $scope.filteredList.pilots = [];
+    $scope.filteredList.corps = [];
+    $scope.filteredList.allies = [];
+    $scope.filteredList.ships = [];
+
+//Loop through Pilots and remove dupes
+angular.forEach($scope.kills, function(key,value){
+  if (!pilotCheck($scope.filteredList.pilots, key.victim.characterName) && key.victim.characterName != ""){
+    $scope.filteredList.pilots.push({pilotName:key.victim.characterName, pilotId:key.victim.characterID, type:"victim"});
+  }
+    angular.forEach(key.attackers, function(key,attackerValue){
+      if (!pilotCheck($scope.filteredList.pilots, key.characterName) && key.characterName != ""){
+        $scope.filteredList.pilots.push({pilotName:key.characterName, pilotId:key.characterID, type:"attacker"});
+      }
+    })
+});
+>>>>>>> origin/master
 
   function pilotCheck(pilotList, pilotName){
     for (var i = 0; i < pilotList.length; i++){

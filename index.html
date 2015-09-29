@@ -33,8 +33,13 @@ color:#19581d;
 <input style="width:75%;" type="text" ng-model="searchPilots" placeholder=" search pilots">
 <hr>
     <div ng-repeat="pilot in filteredList.pilots | filter:searchPilots | orderBy:'pilotName'">
+<<<<<<< HEAD
 <div style="border: 1px solid #666; width:55%; float:left;"><span>&nbsp;{{pilot.pilotName}}</span></div>
   <div style="border: 1px solid #666; width:34%; float:left;"><span><b>&nbsp;<a ng-href="http://eve-hunt.net/hunt/{{pilot.pilotName}}" target="_blank">H</a> || <a ng-href="https://zkillboard.com/character/{{pilot.pilotId}}" target="_blank">zK</a> || <a ng-href="http://evewho.com/pilot/{{pilot.pilotName}}" target="_blank">W</a> || <a ng-href="http://eve-search.com/search/author/{{pilot.pilotName}}" target="_blank">S</a> </b></span></div>
+=======
+<div style="border: 1px solid #ccc; width:55%; float:left;"><span>&nbsp;{{pilot.pilotName}}</span></div>
+  <div style="border: 1px solid #ccc; width:34%; float:left;"><span><b>&nbsp;<a ng-href="http://eve-hunt.net/hunt/{{pilot.pilotName}}" target="_blank">H</a> || <a ng-href="https://zkillboard.com/character/{{pilot.pilotId}}" target="_blank">zK</a> || <a ng-href="http://evewho.com/pilot/{{pilot.pilotName}}" target="_blank">W</a> || <a ng-href="http://eve-search.com/search/author/{{pilot.pilotName}}" target="_blank">S</a> </b></span></div>
+>>>>>>> origin/master
 </div>
 </div>
 <!--ALL CORPS minus Dupes-->
@@ -44,7 +49,11 @@ color:#19581d;
 <input style="width:75%;" type="text" ng-model="searchCorps" placeholder=" search corps">
 <hr>
     <div ng-repeat="corp in filteredList.corps | filter:searchCorps | orderBy:'corpName'">
+<<<<<<< HEAD
   <div style="border: 1px solid #666; width:70%; float:left;"><span>&nbsp;{{corp.corpName}}</span></div> <div style="border: 1px solid #666; width:21%; float:left;"><span><b>&nbsp;<a ng-href="http://eve-hunt.net/hunt/{{corp.corpName | noPeriod}}" target="_blank">H</a> || <a ng-href="https://zkillboard.com/corporation/{{corp.corpId}}" target="_blank">zK</a> || <a ng-href="http://evewho.com/corp/{{corp.corpName}}" target="_blank">W</a></b></span></div>
+=======
+  <div style="border: 1px solid #ccc; width:70%; float:left;"><span>&nbsp;{{corp.corpName}}</span></div> <div style="border: 1px solid #ccc; width:21%; float:left;"><span><b>&nbsp;<a ng-href="http://eve-hunt.net/hunt/{{corp.corpName | noPeriod}}" target="_blank">H</a> || <a ng-href="https://zkillboard.com/corporation/{{corp.corpId}}" target="_blank">zK</a> || <a ng-href="http://evewho.com/corp/{{corp.corpName}}" target="_blank">W</a></b></span></div>
+>>>>>>> origin/master
 </div>
 </div>
 <!--ALL Alliances minus Dupes-->
@@ -54,7 +63,11 @@ color:#19581d;
 <input style="width:75%;" type="text" ng-model="searchAlly" placeholder=" search alliances">
 <hr>
     <div ng-repeat="ally in filteredList.allies | filter:searchAlly | orderBy:'allyName'">
+<<<<<<< HEAD
   <div style="border: 1px solid #666; width:70%; float:left;"><span>&nbsp;{{ally.allyName}}</span></div>
+=======
+  <div style="border: 1px solid #ccc; width:70%; float:left;"><span>&nbsp;{{ally.allyName}}</span></div>
+>>>>>>> origin/master
 </div>
 </div>
 
