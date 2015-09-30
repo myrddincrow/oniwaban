@@ -10,6 +10,7 @@ var myApp = angular.module('myApp', [])
 
 .controller('MyCtrl', ['$scope', '$http', function ($scope, $http) {
 
+/// ----------------- REMOVE THE DUPES-------------////
   function pilotCheck(pilotList, pilotName){
     for (var i = 0; i < pilotList.length; i++){
       if (pilotList[i].pilotName == pilotName){
@@ -49,6 +50,7 @@ var myApp = angular.module('myApp', [])
     }
     return false;
   };
+  /// ----------------- end REMOVE THE DUPES-------------////
 
   $scope.exportData =function(){
   var csvData = [];
@@ -92,7 +94,7 @@ var myApp = angular.module('myApp', [])
       return "";
     }
     }
-
+//Input API query and click to run
 $scope.apiClick = function(){
 if ($scope.apiVal === "" || $scope.apiVal === undefined){
   alert("API Input is Blank");
@@ -100,14 +102,14 @@ if ($scope.apiVal === "" || $scope.apiVal === undefined){
 }
   $http.get($scope.apiVal).success(function(data){
       $scope.kills = angular.fromJson(data);
-
+//create data arrays to store objects
       $scope.filteredList = {};
       $scope.filteredList.pilots = [];
       $scope.filteredList.corps = [];
       $scope.filteredList.allies = [];
       $scope.filteredList.ships = [];
 
-  //Loop through Pilots and remove dupes
+  //loop through Pilots and create objects for pilotName and pilotId
   angular.forEach($scope.kills, function(key,value){
     if (!pilotCheck($scope.filteredList.pilots, key.victim.characterName) && key.victim.characterName != ""){
       $scope.filteredList.pilots.push({pilotName:key.victim.characterName, pilotId:key.victim.characterID, type:"victim"});
@@ -119,21 +121,19 @@ if ($scope.apiVal === "" || $scope.apiVal === undefined){
       })
   });
 
-  //Loop through Corps and remove dupes
+  //Loop through Corps and create ojecst for corpName and corpId
   angular.forEach($scope.kills, function(key,value){
     if (!corpCheck($scope.filteredList.corps, key.victim.corporationName) && key.victim.corporationName != ""){
-      // key.victim.corporationName = key.victim.corporationName.replace(".","@2E");
       $scope.filteredList.corps.push({corpName:key.victim.corporationName, corpId:key.victim.corporationID, type:"victim"});
     }
       angular.forEach(key.attackers, function(key,attackerValue){
         if (!corpCheck($scope.filteredList.corps, key.corporationName) && key.corporationName != ""){
-          // key.corporationName = key.corporationName.replace(".","@2E");
           $scope.filteredList.corps.push({corpName:key.corporationName, corpId:key.corporationID, type:"attacker"});
         }
       })
   });
 
-  //Loop through Alliances and remove dupes
+  //Loop through Alliances and create object allyName
   angular.forEach($scope.kills, function(key,value){
     if (!allyCheck($scope.filteredList.allies, key.victim.allianceName) && key.victim.allianceName != ""){
       $scope.filteredList.allies.push({allyName:key.victim.allianceName});
@@ -144,7 +144,7 @@ if ($scope.apiVal === "" || $scope.apiVal === undefined){
         }
       })
   });
-
+  //Loop through Ships and create object shipType
   angular.forEach($scope.kills, function(key,value){
     if (!shipCheck($scope.filteredList.ships, key.victim.shipTypeID) && key.victim.shipTypeID != ""){
       $scope.filteredList.ships.push({shipType:key.victim.shipTypeID});
